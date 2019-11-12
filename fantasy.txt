@@ -1,0 +1,24 @@
+Plans:
+
+1) Evaluate the 'ideal world' rankings - if each player was involved in every combination match up each week, who would currently be on top
+
+2) Lucky (lowest winning score) &/or win with most other league defeats
+
+3) Unlucky (highest winning score) &/or loss with most league wins
+
+4) Most consistent by SD metrics
+
+5) Highest winning margin
+
+6) Most scores under 100
+
+7) Most scores over 150
+
+8) Something concerning the quality of scores each week - which Bye weeks had the most impact
+
+9) Who fares best against teams with a winning record
+
+10) Who fares worst against teams with a losing record
+
+
+
