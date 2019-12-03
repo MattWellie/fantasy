@@ -26,7 +26,7 @@ if __name__ == "__main__":
     logging.debug('teams:', list(map(str, teams)))
 
     # obtain the weeks in number form - columns must be called "week#" for this to work
-    weeks = sorted([int(x.replace('week', '')) for x in score_df.columns])
+    weeks = sorted(map(int, score_df.columns))
     logging.debug('weeks', list(map(str, weeks)))
 
     # iterate over teams, and for each one, pick up the scores for other teams only
@@ -44,12 +44,14 @@ if __name__ == "__main__":
         # iterate over weeks
         for week in weeks:
 
+            week_index = str(week)
+
             # for this week and team, what was the score?
-            my_team_score = score_df.loc[[team], f'week{week}']
+            my_team_score = score_df.loc[[team], week_index]
 
             # apply this score as a challenge to all scores in this week - this returns a series. Replace the opposition
             # dataframe slice for this week with the Boolean result - causes a warning
-            opposition_df[f'week{week}'] = opposition_df.loc[:, f'week{week}'].apply(lambda x: x < my_team_score)
+            opposition_df[week_index] = opposition_df.loc[:, week_index].apply(lambda x: x < my_team_score)
 
             # can't get my head around the warning free way to do this...
             # opposition_df[:, [f'week{week}']] = weekly_scores.apply(lambda x: x < my_team_score)  # nope
